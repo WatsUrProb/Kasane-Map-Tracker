@@ -45,8 +45,6 @@ const campsiteIcon = createSvgMarker(homeIconUrl, "campsite-svg-marker");
 const filmCrewIcon = createSvgMarker(filmIconUrl, "film-svg-marker");
 const sosIcon = createSvgMarker(helpIconUrl, "sos-svg-marker");
 
-
-
 function MapClickHandler({ isAddMode, onMapClick }) {
   useMapEvents({
     click(event) {
@@ -172,6 +170,7 @@ function SafariMap({
   onFinishedCenteringUser,
   onMapClick,
   mapType,
+  onVerifySighting,
 }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -222,48 +221,60 @@ function SafariMap({
         </Marker>
       )}
 
-     {sightings.map((spot) => {
-  const customIcon = getMarkerIcon(spot);
+      {sightings.map((spot) => {
+        const customIcon = getMarkerIcon(spot);
 
-  return (
-    <Marker
-      key={spot.id}
-      position={[spot.lat, spot.lng]}
-      icon={customIcon}
-    >
-      <Popup>
-        <strong>{getSightingTitle(spot)}</strong>
-        <br />
-        Category: {spot.category}
-        <br />
-
-        {spot.category === "animal" && (
-          <>
-            Animal: {spot.animalType}
-            <br />
-            Group: {spot.groupType}
-            <br />
-            Count: {spot.count}
-            <br />
-            Behaviour: {spot.behaviour}
-            <br />
-          </>
-        )}
-
-        {spot.description && (
-          <>
-            Notes: {spot.description}
-            <br />
-          </>
-        )}
-
-        Lat: {spot.lat}
-        <br />
-        Lng: {spot.lng}
-      </Popup>
-    </Marker>
-  );
-})}
+        return (
+          <Marker
+            key={spot.id}
+            position={[spot.lat, spot.lng]}
+            icon={customIcon}
+          >
+            {/* Code for the Spot */}
+            <Popup>
+              <strong>{getSightingTitle(spot)}</strong>
+              <br />
+              Category: {spot.category}
+              <br />
+              {spot.category === "animal" && (
+                <>
+                  Animal: {spot.animalType}
+                  <br />
+                  Group: {spot.groupType}
+                  <br />
+                  Count: {spot.count}
+                  <br />
+                  Behaviour: {spot.behaviour}
+                  <br />
+                </>
+              )}
+              {spot.description && (
+                <>
+                  Notes: {spot.description}
+                  <br />
+                </>
+              )}
+              Lat: {spot.lat}
+              <br />
+              Lng: {spot.lng}
+              <br />
+              Verified by: {spot.verifiedCount} user(s)
+              <br />
+              {spot.lastVerifiedAt && (
+                <>
+                  Last verified:{" "}
+                  {Math.floor((Date.now() - spot.lastVerifiedAt) / 60000)} min
+                  ago
+                  <br />
+                </>
+              )}
+              <button onClick={() => onVerifySighting(spot.id)}>
+                Verify sighting
+              </button>
+            </Popup>
+          </Marker>
+        );
+      })}
 
       {selectedPosition && (
         <Marker position={[selectedPosition.lat, selectedPosition.lng]}>
