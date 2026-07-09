@@ -1,16 +1,35 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Kasane Safari Tracker
 
-Currently, two official plugins are available:
+Kasane Safari Tracker is a React + Vite web application prototype for mapping safari activity around Kasane, Botswana. 
+The app allows users to view and add recent wildlife-related map markers such as animal sightings, carcass hotspots, temporary campsites, 
+film crew vehicles, and SOS alerts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The project uses React state to manage the interface, React Leaflet to render an interactive map, a
+nd Supabase as the backend database for persistent sighting storage. 
 
-## React Compiler
+## Current Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Interactive map centered around Kasane
+- Add wildlife sightings by selecting a point on the map
+- Support for categories such as animals, carcasses, campsites, film crew vehicles, and SOS alerts
+- Custom SVG-based map markers for different sighting categories
+- Map type switching between regular, satellite, and hybrid views
+- Mobile-responsive layout with a floating menu and compact sighting form
+- Supabase PostgreSQL table for storing sightings persistently
+- Row Level Security policies for public read and insert access during prototype testing
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- React Leaflet / Leaflet
+- Supabase
+- PostgreSQL
+- CSS media queries for responsive design
+
+## Project Goal
+
+The goal of this project is to explore how a real-time safari field tool could help users share temporary location-based information,
+ such as recent animal sightings or emergency alerts, while learning frontend development, interactive maps, database integration,
+  and multi-user web app architecture. */
