@@ -1,0 +1,106 @@
+.sighting-form {
+  margin: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(21, 27, 18, 0.96);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+.sighting-form h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.sighting-form label {
+  display: block;
+  margin-bottom: 12px;
+  color: #dce6d4;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sighting-form select,
+.sighting-form input,
+.sighting-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.sighting-form textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+
+.location-warning {
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(244, 185, 66, 0.18);
+  color: #ffd166;
+  font-size: 14px;
+}
+
+.location-success {
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(72, 187, 120, 0.18);
+  color: #8df0a5;
+  font-size: 14px;
+}
+
+.submit-sighting-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #4caf50;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.submit-sighting-button:hover {
+  background: #5fd067;
+}
+
+@media (max-width: 768px) {
+  .sighting-form {
+    padding: 14px;
+  }
+
+  .sighting-form h3 {
+    font-size: 16px;
+  }
+
+  .sighting-form label {
+    font-size: 12px;
+    margin-bottom: 9px;
+  }
+
+  .sighting-form select,
+  .sighting-form input,
+  .sighting-form textarea {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .sighting-form textarea {
+    min-height: 56px;
+  }
+
+  .location-warning,
+  .location-success {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .submit-sighting-button {
+    padding: 10px;
+    font-size: 13px;
+  }
+}

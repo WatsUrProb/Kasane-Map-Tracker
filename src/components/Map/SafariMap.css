@@ -1,0 +1,89 @@
+.safari-map {
+  width: 100%;
+  height: 100%;
+}
+
+.user-location-icon {
+  background: transparent;
+  border: none;
+}
+
+.user-location-dot {
+  width: 22px;
+  height: 22px;
+  background: #2f9e44;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(47, 158, 68, 0.25);
+}
+
+.sos-location-icon {
+  background: transparent;
+  border: none;
+}
+
+.sos-location-dot {
+  width: 30px;
+  height: 30px;
+  background: #d72626;
+  border: 3px solid white;
+  border-radius: 50%;
+  color: white;
+  font-weight: 900;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 7px rgba(215, 38, 38, 0.25);
+}
+
+.svg-map-marker {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.svg-map-marker img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.animal-svg-marker {
+  background: #e0a913;
+}
+
+.carcass-svg-marker {
+  background: #991b1b;
+}
+
+.campsite-svg-marker {
+  background: #93df10;
+}
+
+.film-svg-marker {
+  background: #7c3aed;
+}
+
+.sos-svg-marker {
+  background: #dc2626;
+  box-shadow: 0 0 0 7px rgba(220, 38, 38, 0.25);
+}
+
+@media (max-width: 768px) {
+  .svg-map-marker {
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+  }
+
+  .svg-map-marker img {
+    width: 17px;
+    height: 17px;
+  }
+}

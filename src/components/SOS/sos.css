@@ -1,0 +1,27 @@
+.sos-section {
+  margin: 16px 0;
+}
+
+.sos-button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: #d72626;
+  color: white;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.sos-button:hover {
+  background: #f03a3a;
+}
+
+.sos-description {
+  margin: 8px 0 0;
+  color: #e2b6b6;
+  font-size: 13px;
+  line-height: 1.4;
+}

@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: #10140f;
+  color: white;
+}
+
+.map-area {
+  flex: 1;
+  height: 100vh;
+  min-width: 0;
+}

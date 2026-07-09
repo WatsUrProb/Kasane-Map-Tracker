@@ -1,0 +1,173 @@
+.sidebar {
+  width: 340px;
+  height: 100vh;
+  padding: 24px;
+  background: #151b12;
+  color: white;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.sidebar-header h1 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.sidebar-header p {
+  margin: 0 0 20px;
+  color: #c7d0bd;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-sighting-button,
+.my-location-button,
+.map-type-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.add-sighting-button {
+  background: #f4b942;
+  color: #151b12;
+}
+
+.add-sighting-button:hover {
+  background: #ffd166;
+}
+
+.my-location-button {
+  background: #2f9e44;
+}
+
+.my-location-button:hover {
+  background: #40c057;
+}
+
+.map-type-button {
+  background: #3b82f6;
+}
+
+.map-type-button:hover {
+  background: #60a5fa;
+}
+
+.current-map-type {
+  margin: 10px 0 16px;
+  color: #c7d0bd;
+  font-size: 13px;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+.floating-sighting-form {
+  position: fixed;
+  left: 360px;
+  top: 24px;
+  width: 340px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  z-index: 1200;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+.mobile-menu-button {
+  display: block;
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1500;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(21, 27, 18, 0.92);
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+  .sidebar {
+    position: fixed;
+    top: 100px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    height: auto;
+    max-height: 48vh;
+    padding: 16px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(21, 27, 18, 0.95);
+    transform: translateY(-130%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateY(0);
+  }
+
+  .sidebar-header h1 {
+    font-size: 20px;
+  }
+
+  .sidebar-header p {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .add-sighting-button,
+  .my-location-button,
+  .map-type-button {
+    padding: 11px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .map-type-button {
+    grid-column: span 2;
+  }
+
+  .current-map-type {
+    font-size: 12px;
+    margin: 8px 0 10px;
+  }
+
+  .floating-sighting-form {
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    top: auto;
+    width: auto;
+    max-height: 42vh;
+    z-index: 1400;
+    overflow-y: auto;
+    border-radius: 18px;
+  }
+}
