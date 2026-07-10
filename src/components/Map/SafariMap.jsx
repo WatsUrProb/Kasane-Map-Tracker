@@ -16,9 +16,9 @@ import "../../utils/leaficon.js";
 //Icon Imports://
 import pawIconUrl from "../../assets/icons/paw.svg";
 import deadIconUrl from "../../assets/icons/dead.svg";
-import homeIconUrl from "../../assets/icons/home.svg";
+import homeIconUrl from "../../assets/icons/tent.svg";
 import filmIconUrl from "../../assets/icons/film.svg";
-import helpIconUrl from "../../assets/icons/tent.svg";
+import helpIconUrl from "../../assets/icons/help.svg";
 
 const kasaneCenter = [-17.8167, 25.15];
 

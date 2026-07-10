@@ -4,6 +4,7 @@ import IntroPage from "./components/IntroPage/IntroPage";
 import Sidebar from "./components/Sidebar/sidebar";
 import SafariMap from "./components/Map/SafariMap";
 import SOSBanner from "./components/SOSBanner/SOSBanner";
+import SightingNotification from "./components/SightingNotification/SightingNotification";
 
 import "./App.css";
 
@@ -30,7 +31,8 @@ function convertDatabaseSighting(row) {
 
 function App() {
   const [hasEnteredApp, setHasEnteredApp] = useState(false);
-
+  const [activeSightingNotification, setActiveSightingNotification] =
+    useState(null);
   const [sightings, setSightings] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
   const [selectedPosition, setSelectedPosition] = useState(null);
@@ -83,6 +85,8 @@ function App() {
 
             if (newSighting.category === "sos") {
               setActiveSOSAlert(newSighting);
+            } else {
+              setActiveSightingNotification(newSighting);
             }
 
             setSightings((prevSightings) => {
@@ -136,6 +140,22 @@ function App() {
       clearInterval(intervalId);
     };
   }, []);
+
+  //6 seconds function to remove sighting notification
+  useEffect(() => {
+  if (!activeSightingNotification) {
+    return;
+  }
+
+  const timeoutId = setTimeout(() => {
+    setActiveSightingNotification(null);
+  }, 10000);
+
+  return () => {
+    clearTimeout(timeoutId);
+  };
+}, [activeSightingNotification]);
+
 
   function handleMapClick(latlng) {
     if (!isAddMode) {
@@ -220,7 +240,7 @@ function App() {
     }
 
     const convertedSighting = convertDatabaseSighting(data);
-
+    setActiveSightingNotification(convertedSighting);
     setSightings((prevSightings) => [convertedSighting, ...prevSightings]);
 
     setSelectedPosition(null);
@@ -318,6 +338,10 @@ function App() {
         sosAlert={activeSOSAlert}
         onDismiss={() => setActiveSOSAlert(null)}
       />
+      {<SightingNotification
+        sighting={activeSightingNotification}
+        onDismiss={() => setActiveSightingNotification(null)}
+      />}
       <Sidebar
         isAddMode={isAddMode}
         setIsAddMode={setIsAddMode}
