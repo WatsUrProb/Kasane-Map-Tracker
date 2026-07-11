@@ -1,0 +1,134 @@
+.reports-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1800;
+  background: rgba(0, 0, 0, 0.42);
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  padding: 18px;
+}
+
+.reports-modal {
+  width: min(420px, 100%);
+  height: 100%;
+  border-radius: 22px;
+  background: rgba(21, 27, 18, 0.98);
+  color: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.reports-modal-header {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.reports-modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.reports-modal-header p {
+  margin: 4px 0 0;
+  color: #cbd5c0;
+  font-size: 13px;
+}
+
+.reports-modal-close {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.reports-list {
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.report-item {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.report-item:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.report-item-sos {
+  background: rgba(180, 30, 30, 0.34);
+}
+
+.report-item-sos:hover {
+  background: rgba(180, 30, 30, 0.48);
+}
+
+.report-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.report-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.report-info strong {
+  font-size: 14px;
+}
+
+.report-info span {
+  font-size: 13px;
+  color: #e4eadf;
+}
+
+.report-info small {
+  font-size: 12px;
+  color: #b9c3ae;
+}
+
+.reports-empty {
+  color: #cbd5c0;
+  font-size: 14px;
+  padding: 12px;
+}
+
+@media (max-width: 768px) {
+  .reports-modal-backdrop {
+    align-items: flex-end;
+    padding: 12px;
+  }
+
+  .reports-modal {
+    width: 100%;
+    height: 62vh;
+    border-radius: 22px 22px 16px 16px;
+  }
+}

@@ -161,6 +161,21 @@ function BaseMapLayers({ mapType }) {
   );
 }
 
+function FocusReportController({ reportToFocus }) {
+  const map = useMap();
+  useEffect(() => {
+    if (!reportToFocus) {
+      return;
+    }
+
+    map.flyTo([reportToFocus.lat, reportToFocus.lng], 16, {
+      animate: true,
+      duration: 1.2,
+    });
+  }, [reportToFocus, map]);
+  return null;
+}
+
 function SafariMap({
   sightings,
   isAddMode,
@@ -171,6 +186,7 @@ function SafariMap({
   onMapClick,
   mapType,
   onVerifySighting,
+  reportToFocus,
 }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -194,6 +210,7 @@ function SafariMap({
       scrollWheelZoom={true}
       className="safari-map"
     >
+      <FocusReportController reportToFocus={reportToFocus} />
       <RecenterMap
         userLocation={userLocation}
         shouldCenterOnUser={shouldCenterOnUser}

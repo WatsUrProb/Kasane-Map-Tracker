@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar/sidebar";
 import SafariMap from "./components/Map/SafariMap";
 import SOSBanner from "./components/SOSBanner/SOSBanner";
 import SightingNotification from "./components/SightingNotification/SightingNotification";
+import ReportsModal from "./components/ReportsModal/ReportsModal";
 
 import "./App.css";
 
@@ -40,6 +41,10 @@ function App() {
   const [shouldCenterOnUser, setShouldCenterOnUser] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSOSAlert, setActiveSOSAlert] = useState(null);
+
+  //For notification modal
+  const [isReportsModalOpen, setIsReportsModalOpen] = useState(false);
+  const [selectedReportToFocus, setSelectedReportToFocus] = useState(null);
 
   // "regular", "satellite", or "hybrid"
   const [mapType, setMapType] = useState("regular");
@@ -143,19 +148,18 @@ function App() {
 
   //6 seconds function to remove sighting notification
   useEffect(() => {
-  if (!activeSightingNotification) {
-    return;
-  }
+    if (!activeSightingNotification) {
+      return;
+    }
 
-  const timeoutId = setTimeout(() => {
-    setActiveSightingNotification(null);
-  }, 10000);
+    const timeoutId = setTimeout(() => {
+      setActiveSightingNotification(null);
+    }, 10000);
 
-  return () => {
-    clearTimeout(timeoutId);
-  };
-}, [activeSightingNotification]);
-
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [activeSightingNotification]);
 
   function handleMapClick(latlng) {
     if (!isAddMode) {
@@ -328,6 +332,11 @@ function App() {
     });
   }
 
+  function handleFocusReport(sighting) {
+    setSelectedReportToFocus(sighting);
+    setIsReportsModalOpen(false);
+  }
+
   if (!hasEnteredApp) {
     return <IntroPage onEnter={() => setHasEnteredApp(true)} />;
   }
@@ -338,10 +347,27 @@ function App() {
         sosAlert={activeSOSAlert}
         onDismiss={() => setActiveSOSAlert(null)}
       />
-      {<SightingNotification
-        sighting={activeSightingNotification}
-        onDismiss={() => setActiveSightingNotification(null)}
-      />}
+
+      {
+        <SightingNotification
+          sighting={activeSightingNotification}
+          onDismiss={() => setActiveSightingNotification(null)}
+        />
+      }
+      <button
+        className="reports-open-button"
+        onClick={() => setIsReportsModalOpen(true)}
+      >
+        Recent Reports
+      </button>
+
+      {isReportsModalOpen && (
+        <ReportsModal
+          sightings={sightings}
+          onClose={() => setIsReportsModalOpen(false)}
+          onFocusReport={handleFocusReport}
+        />
+      )}
       <Sidebar
         isAddMode={isAddMode}
         setIsAddMode={setIsAddMode}
@@ -366,6 +392,7 @@ function App() {
           onMapClick={handleMapClick}
           mapType={mapType}
           onVerifySighting={handleVerifySighting}
+          reportToFocus={selectedReportToFocus}
         />
       </main>
     </div>
