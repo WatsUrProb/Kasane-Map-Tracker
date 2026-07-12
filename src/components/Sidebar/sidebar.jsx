@@ -3,6 +3,7 @@ import SOS from "../SOS/sos";
 import Legends from "../Legends/legends";
 import "./sidebar.css";
 import SidebarActionButton from "./SidebarActionButton/SidebarActionButton";
+import MapTypeFlipButton from "./MapTypeFlipButton/MapTypeFlipButton";
 
 //icons imports
 import pawIconUrl from "../../assets/icons/paw.svg";
@@ -97,14 +98,13 @@ function Sidebar({
             My Location
           </SidebarActionButton>
 
-          <button className="map-type-button" onClick={onCycleMapType}>
-            Map: {getMapButtonText()}
-          </button>
+          <MapTypeFlipButton mapType={mapType} npm onClick={onCycleMapType} />
         </div>
 
-        <p className="current-map-type">
-          Current map: <strong>{mapType}</strong>
-        </p>
+        <div className="current-map-status">
+          <span className="current-map-label">Current Map:</span>
+          <strong>{mapType}</strong>
+        </div>
 
         <SOS onSOS={onSOS} />
 

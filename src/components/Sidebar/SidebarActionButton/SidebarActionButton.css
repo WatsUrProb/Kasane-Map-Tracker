@@ -1,7 +1,7 @@
 .sidebar-action-button {
   position: relative;
   overflow: hidden;
-  width: 100%;
+  width: 76%;
   min-height: 42px;
   border: 1px solid rgba(0, 255, 255, 0.45);
   border-radius: 12px;
@@ -13,6 +13,7 @@
   cursor: pointer;
   transition: all 0.35s ease;
   z-index: 1;
+  margin: 0 auto;
 }
 
 .sidebar-action-button span {

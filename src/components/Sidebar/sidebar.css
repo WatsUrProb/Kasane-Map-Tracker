@@ -171,3 +171,52 @@
     border-radius: 18px;
   }
 }
+
+/* Map-status css */
+
+.current-map-status {
+  width: 75%;
+  margin: 12px auto 20px;
+  padding: 14px 16px;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(231, 196, 135, 0.22),
+    rgba(255, 209, 102, 0.08)
+  );
+
+  border: 2px solid rgba(254, 251, 246, 0.75);
+
+  box-shadow:
+    0 0 12px rgba(245, 158, 11, 0.45),
+    0 0 28px rgba(245, 158, 11, 0.22),
+    inset 0 0 18px rgba(255, 209, 102, 0.12);
+
+  text-align: center;
+}
+
+.current-map-label {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #f0e6cf;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.current-map-status strong {
+  display: block;
+
+  color: #fff7d6;
+  font-size: 24px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  text-shadow:
+    0 0 8px rgba(255, 209, 102, 0.8),
+    0 0 18px rgba(245, 158, 11, 0.55);
+}
