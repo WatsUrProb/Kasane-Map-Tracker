@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SightingForm.css";
 
-function SightingForm({ selectedPosition, onAddSighting }) {
+function SightingForm({ selectedPosition, onAddSighting, onCancel }) {
   const [formData, setFormData] = useState({
     category: "animal",
     animalType: "elephant",
@@ -27,10 +27,21 @@ function SightingForm({ selectedPosition, onAddSighting }) {
 
   return (
     <form className="sighting-form" onSubmit={handleSubmit}>
+      <button
+        type="button"
+        className="sighting-form-close"
+        onClick={onCancel}
+        aria-label="Close sighting form"
+      >
+        ×
+      </button>
+
       <h3>New Sighting</h3>
 
       {!selectedPosition ? (
-        <p className="location-warning">Click on the map to choose a location.</p>
+        <p className="location-warning">
+          Click on the map to choose a location.
+        </p>
       ) : (
         <p className="location-success">
           Location selected: {selectedPosition.lat.toFixed(4)},{" "}

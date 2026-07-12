@@ -2,6 +2,7 @@ import SightingForm from "./SightingForm/SightingForm";
 import SOS from "../SOS/sos";
 import Legends from "../Legends/legends";
 import "./sidebar.css";
+import SidebarActionButton from "./SidebarActionButton/SidebarActionButton";
 
 //icons imports
 import pawIconUrl from "../../assets/icons/paw.svg";
@@ -84,13 +85,17 @@ function Sidebar({
         </div>
 
         <div className="sidebar-actions">
-          <button className="add-sighting-button" onClick={handleToggleAddMode}>
-            {isAddMode ? "Cancel Add" : "Add Sighting"}
-          </button>
+          <SidebarActionButton
+            variant="add"
+            onClick={() => setIsAddMode(!isAddMode)}
+            isActive={isAddMode}
+          >
+            {isAddMode ? "Adding Mode On" : "Add Sighting"}
+          </SidebarActionButton>
 
-          <button className="my-location-button" onClick={onAddMyLocation}>
+          <SidebarActionButton variant="location" onClick={onAddMyLocation}>
             My Location
-          </button>
+          </SidebarActionButton>
 
           <button className="map-type-button" onClick={onCycleMapType}>
             Map: {getMapButtonText()}
@@ -111,6 +116,7 @@ function Sidebar({
           <SightingForm
             selectedPosition={selectedPosition}
             onAddSighting={onAddSighting}
+            onCancel={() => setIsAddMode(false)}
           />
         </div>
       )}
