@@ -3,6 +3,36 @@ import SOS from "../SOS/sos";
 import Legends from "../Legends/legends";
 import "./sidebar.css";
 
+//icons imports
+import pawIconUrl from "../../assets/icons/paw.svg";
+import deadIconUrl from "../../assets/icons/dead.svg";
+import campsiteIconUrl from "../../assets/icons/tent.svg";
+import filmIconUrl from "../../assets/icons/film.svg";
+import helpIconUrl from "../../assets/icons/help.svg";
+
+const markerTypes = [
+  {
+    label: "Animal",
+    icon: pawIconUrl,
+  },
+  {
+    label: "Carcass",
+    icon: deadIconUrl,
+  },
+  {
+    label: "Campsite",
+    icon: campsiteIconUrl,
+  },
+  {
+    label: "Film Crew",
+    icon: filmIconUrl,
+  },
+  {
+    label: "SOS",
+    icon: helpIconUrl,
+  },
+];
+
 function Sidebar({
   isAddMode,
   setIsAddMode,

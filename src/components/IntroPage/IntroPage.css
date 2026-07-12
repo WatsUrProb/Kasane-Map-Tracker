@@ -1,81 +1,164 @@
 .intro-page {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background: #000;
+  color: white;
+  position: relative;
+}
+
+.matrix-bg {
   background:
-    linear-gradient(rgba(9, 13, 8, 0.45), rgba(9, 13, 8, 0.9)),
+    radial-gradient(circle at center, rgba(0, 255, 102, 0.12), transparent 38%),
+    linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.94)),
     url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=80");
   background-size: cover;
   background-position: center;
-  color: white;
 }
 
-.intro-overlay {
-  width: 100%;
-  height: 100%;
+.intro-matrix-container {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 22px;
   padding: 32px;
-}
-
-.intro-card {
-  max-width: 720px;
-  padding: 42px;
-  border-radius: 28px;
-  background: rgba(12, 18, 10, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(10px);
+  text-align: center;
 }
 
 .intro-label {
-  margin: 0 0 12px;
-  color: #f4b942;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  margin: 0;
+  color: #e5f1ea;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  text-shadow:
+    0 0 8px rgba(0, 255, 102, 0.8),
+    0 0 18px rgba(0, 255, 102, 0.45);
 }
 
-.intro-card h1 {
+.matrix-text {
   margin: 0;
-  font-size: clamp(42px, 7vw, 76px);
+  color: #00ff66;
+  font-size: clamp(44px, 8vw, 92px);
   line-height: 0.95;
+  font-family: monospace;
+  font-weight: 900;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  text-shadow:
+    0 0 10px #00ff66,
+    0 0 24px rgba(0, 255, 102, 0.9),
+    0 0 42px rgba(0, 255, 102, 0.65);
+}
+
+.matrix-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #00ff66;
+  animation: intro-glitch 2s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  text-shadow:
+    0 0 5px #00ff66,
+    0 0 15px rgba(0, 255, 102, 0.9);
+  pointer-events: none;
+}
+
+.matrix-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.08) 0,
+    rgba(0, 255, 0, 0.16) 2px,
+    transparent 4px,
+    transparent 8px
+  );
+  animation: intro-rain 10s linear infinite;
+  opacity: 0.75;
+  pointer-events: none;
 }
 
 .intro-description {
-  margin: 24px 0;
+  max-width: 720px;
+  margin: 0;
   color: #dce6d4;
-  font-size: 18px;
+  font-size: clamp(15px, 2vw, 19px);
   line-height: 1.6;
+  text-shadow: 0 0 14px rgba(0, 0, 0, 0.9);
 }
 
 .intro-features {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 28px;
 }
 
 .intro-features span {
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #eef5e8;
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(0, 255, 102, 0.35);
+  color: #eaffef;
   font-size: 14px;
+  box-shadow: 0 0 14px rgba(0, 255, 102, 0.12);
 }
 
-.intro-enter-button {
-  padding: 16px 24px;
-  border: none;
-  border-radius: 16px;
-  background: #f4b942;
-  color: #151b12;
-  font-size: 18px;
-  font-weight: 900;
-  cursor: pointer;
+@keyframes intro-rain {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
 }
 
-.intro-enter-button:hover {
-  background: #ffd166;
+@keyframes intro-glitch {
+  0%,
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(0);
+  }
+
+  33% {
+    clip-path: polygon(0 0, 100% 0, 100% 15%, 0 15%);
+    transform: translate(-5px, -5px);
+  }
+
+  66% {
+    clip-path: polygon(0 85%, 100% 85%, 100% 100%, 0 100%);
+    transform: translate(5px, 5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-matrix-container {
+    padding: 24px;
+    gap: 18px;
+  }
+
+  .matrix-text {
+    font-size: clamp(38px, 13vw, 64px);
+  }
+
+  .intro-description {
+    font-size: 15px;
+  }
+
+  .intro-features span {
+    font-size: 12px;
+    padding: 8px 11px;
+  }
 }

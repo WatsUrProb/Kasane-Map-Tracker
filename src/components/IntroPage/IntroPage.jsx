@@ -1,30 +1,31 @@
+import MatrixButton from "./MatrixButton/MatrixButton";
 import "./IntroPage.css";
 
 function IntroPage({ onEnter }) {
   return (
-    <div className="intro-page">
-      <div className="intro-overlay">
-        <div className="intro-card">
-          <p className="intro-label">Kasane Wildlife Field Tool</p>
+    <div className="intro-page matrix-bg">
+      <div className="matrix-rain"></div>
 
-          <h1>Safari Map Tracker</h1>
+      <div className="intro-matrix-container">
+        <p className="intro-label">Live Safari Field System</p>
 
-          <p className="intro-description">
-            A simple Project to replicate a map that shows users surrounding activities in Kasane Game Park!
-          </p>
+        <h1 className="matrix-text" data-text="Safari Map Tracker">
+          Safari Map Tracker
+        </h1>
 
-          <div className="intro-features">
-            <span>🐘 Animal sightings</span>
-            <span>🚨 SOS alerts</span>
-            <span>☠️ Carcass hotspots</span>
-            <span>⛺ Temporary campsites</span>
-            <span>🛰️ Satellite / hybrid map</span>
-          </div>
+        <p className="intro-description">
+          Real-time wildlife sightings, SOS alerts, verified reports, and
+          field activity tracking around Kasane.
+        </p>
 
-          <button className="intro-enter-button" onClick={onEnter}>
-            Enter Map
-          </button>
+        <div className="intro-features">
+          <span>Live sightings</span>
+          <span>SOS alerts</span>
+          <span>Verified reports</span>
+          <span>Map tracking</span>
         </div>
+
+        <MatrixButton onClick={onEnter}>Enter Map</MatrixButton>
       </div>
     </div>
   );
