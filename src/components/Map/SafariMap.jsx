@@ -65,10 +65,17 @@ function RecenterMap({
   const map = useMap();
 
   useEffect(() => {
-    if (userLocation && shouldCenterOnUser) {
-      map.setView([userLocation.lat, userLocation.lng], 14);
-      onFinishedCenteringUser();
+    if (!userLocation || !shouldCenterOnUser) {
+      return;
     }
+
+    map.flyTo([userLocation.lat, userLocation.lng], 16, {
+      animate: true,
+
+      duration: 1.2,
+    });
+
+    onFinishedCenteringUser();
   }, [userLocation, shouldCenterOnUser, map, onFinishedCenteringUser]);
 
   return null;

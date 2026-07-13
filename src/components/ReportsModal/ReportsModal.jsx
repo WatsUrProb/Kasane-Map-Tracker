@@ -1,4 +1,5 @@
 import "./ReportsModal.css";
+import CloseButton from "../CloseButton/CloseButton";
 
 function getMinutesAgo(timestamp) {
   if (!timestamp) {
@@ -92,9 +93,7 @@ function ReportsModal({ sightings, onClose, onFocusReport }) {
             <p>Tap a report to zoom to its marker.</p>
           </div>
 
-          <button className="reports-modal-close" onClick={onClose}>
-            Close
-          </button>
+          <CloseButton onClick={onClose} ariaLabel="Close reports modal" />
         </div>
 
         <div className="reports-list">

@@ -10,6 +10,7 @@
 }
 
 .reports-modal {
+  position: relative;
   width: min(420px, 100%);
   height: 100%;
   border-radius: 22px;
@@ -22,12 +23,14 @@
 }
 
 .reports-modal-header {
-  padding: 18px;
+  padding: 78px 18px 18px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   gap: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
+
 
 .reports-modal-header h2 {
   margin: 0;

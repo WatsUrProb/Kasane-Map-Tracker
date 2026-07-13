@@ -1,39 +1,8 @@
 import SightingForm from "./SightingForm/SightingForm";
-import SOS from "../SOS/sos";
 import Legends from "../Legends/legends";
 import "./sidebar.css";
-import SidebarActionButton from "./SidebarActionButton/SidebarActionButton";
 import MapTypeFlipButton from "./MapTypeFlipButton/MapTypeFlipButton";
-
-//icons imports
-import pawIconUrl from "../../assets/icons/paw.svg";
-import deadIconUrl from "../../assets/icons/dead.svg";
-import campsiteIconUrl from "../../assets/icons/tent.svg";
-import filmIconUrl from "../../assets/icons/film.svg";
-import helpIconUrl from "../../assets/icons/help.svg";
-
-const markerTypes = [
-  {
-    label: "Animal",
-    icon: pawIconUrl,
-  },
-  {
-    label: "Carcass",
-    icon: deadIconUrl,
-  },
-  {
-    label: "Campsite",
-    icon: campsiteIconUrl,
-  },
-  {
-    label: "Film Crew",
-    icon: filmIconUrl,
-  },
-  {
-    label: "SOS",
-    icon: helpIconUrl,
-  },
-];
+import SidebarActionButton from "./SidebarActionButton/SidebarActionButton";
 
 function Sidebar({
   isAddMode,
@@ -47,24 +16,14 @@ function Sidebar({
   isMobileMenuOpen,
   setIsMobileMenuOpen,
 }) {
+
+
   function handleToggleAddMode() {
     setIsAddMode(!isAddMode);
 
     // On mobile, close the menu after pressing Add Sighting
     // so the user can see and tap the map.
     setIsMobileMenuOpen(false);
-  }
-
-  function getMapButtonText() {
-    if (mapType === "regular") {
-      return "Satellite";
-    }
-
-    if (mapType === "satellite") {
-      return "Hybrid";
-    }
-
-    return "Regular";
   }
 
   return (
@@ -75,40 +34,62 @@ function Sidebar({
       >
         {isMobileMenuOpen ? "Close" : "Menu"}
       </button>
+      <aside
+        className={`sidebar ${isMobileMenuOpen ? "mobile-open" : ""} ${
+          isAddMode ? "sidebar-hidden-while-adding" : ""
+        }`}
 
-      <aside className={`sidebar ${isMobileMenuOpen ? "mobile-open" : ""}`}>
+      >
+
         <div className="sidebar-header">
-          <h1>Kasane Safari Tracker</h1>
-          <p>
-            Track recent sightings, SOS alerts, carcass hotspots, campsites,
-            film crew vehicles, and safari activity.
+          <p className="sidebar-label">Kasane Field System</p>
+
+          <h1>Kasane Tracker</h1>
+
+          <p className="sidebar-intro">
+            Report sightings, map alerts, and monitor live safari activity
+            around Kasane.
           </p>
         </div>
 
-        <div className="sidebar-actions">
-          <SidebarActionButton
-            variant="add"
-            onClick={() => setIsAddMode(!isAddMode)}
-            isActive={isAddMode}
-          >
-            {isAddMode ? "Adding Mode On" : "Add Sighting"}
-          </SidebarActionButton>
+        <div className="sidebar-main-section">
+          <div className="sidebar-action-section">
+            <SidebarActionButton
+              variant="add"
+              onClick={handleToggleAddMode}
+              isActive={isAddMode}
+            >
+              {isAddMode ? "Adding Mode On" : "Add Sighting"}
+            </SidebarActionButton>
 
-          <SidebarActionButton variant="location" onClick={onAddMyLocation}>
-            My Location
-          </SidebarActionButton>
+            <SidebarActionButton variant="location" onClick={onAddMyLocation}>
+              My Location
+            </SidebarActionButton>
+          </div>
 
-          <MapTypeFlipButton mapType={mapType} npm onClick={onCycleMapType} />
+          <div className="sidebar-map-section">
+            <p className="map-description">Click to switch Maps</p>
+
+            <MapTypeFlipButton mapType={mapType} onClick={onCycleMapType} />
+
+            <div className={`current-map-status current-map-${mapType}`}>
+              <span className="current-map-label">Current Map</span>
+              <strong>{mapType}</strong>
+            </div>
+          </div>
+
+          <Legends />
         </div>
 
-        <div className="current-map-status">
-          <span className="current-map-label">Current Map:</span>
-          <strong>{mapType}</strong>
+        <div className="sidebar-sos-section">
+          <button className="sos-button" onClick={onSOS}>
+            SOS
+          </button>
+
+          <p className="sos-description">
+            Sends your current custom Kasane location as an emergency marker.
+          </p>
         </div>
-
-        <SOS onSOS={onSOS} />
-
-        <Legends />
       </aside>
 
       {isAddMode && (

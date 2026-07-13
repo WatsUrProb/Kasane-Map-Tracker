@@ -1,0 +1,122 @@
+.animated-close-button {
+  width: 54px;
+  height: 54px;
+
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border: none;
+  border-radius: 50%;
+  background-color: #ffffff;
+
+  cursor: pointer;
+  opacity: 1;
+
+  box-shadow: 0 0 24px rgba(52, 196, 23, 0.5);
+
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  z-index: 20;
+}
+
+.animated-close-button:hover {
+  box-shadow: 0 0 28px rgba(241, 34, 3, 0.65);
+  transform: translateX(-50%) scale(1.06);
+}
+
+.close-line {
+  background-color: #41f500;
+  display: block;
+  height: 6px;
+  border-radius: 999px;
+
+  position: absolute;
+  top: 50%;
+  left: 11px;
+
+  width: 32px;
+  margin-top: -3px;
+
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.close-line .circle-left,
+.close-line .circle-right {
+  display: block;
+  background-color: #12af25;
+
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 0;
+
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.close-line .circle-left {
+  left: 0;
+}
+
+.close-line .circle-right {
+  left: 26px;
+}
+
+.close-line.left {
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+.close-line.right {
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+.animated-close-button:hover .close-line {
+  background-color: #6f2217;
+}
+
+.animated-close-button:hover .close-line .circle-left,
+.animated-close-button:hover .close-line .circle-right {
+  background-color: #c95005;
+}
+
+.animated-close-button:hover .close-line .circle-left {
+  left: 26px;
+}
+
+.animated-close-button:hover .close-line .circle-right {
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .animated-close-button {
+    width: 44px;
+    height: 44px;
+    top: 8px;
+  }
+
+  .close-line {
+    height: 5px;
+    width: 28px;
+    left: 8px;
+    margin-top: -2.5px;
+  }
+
+  .close-line .circle-left,
+  .close-line .circle-right {
+    width: 5px;
+    height: 5px;
+  }
+
+  .close-line .circle-right {
+    left: 23px;
+  }
+
+  .animated-close-button:hover .close-line .circle-left {
+    left: 23px;
+  }
+}

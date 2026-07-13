@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./SightingForm.css";
+import CloseButton from "../../CloseButton/CloseButton";
 
 function SightingForm({ selectedPosition, onAddSighting, onCancel }) {
   const [formData, setFormData] = useState({
@@ -27,14 +28,7 @@ function SightingForm({ selectedPosition, onAddSighting, onCancel }) {
 
   return (
     <form className="sighting-form" onSubmit={handleSubmit}>
-      <button
-        type="button"
-        className="sighting-form-close"
-        onClick={onCancel}
-        aria-label="Close sighting form"
-      >
-        ×
-      </button>
+      <CloseButton onClick={onCancel} ariaLabel="Close sighting form" />
 
       <h3>New Sighting</h3>
 
