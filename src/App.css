@@ -19,7 +19,7 @@
 /*Notification Report*/
 .reports-open-button {
   position: fixed;
-  top: 72px;
+  top: 14px;
   right: 18px;
   z-index: 1500;
   border: none;
@@ -38,7 +38,7 @@
 
 @media (max-width: 768px) {
   .reports-open-button {
-    top: 64px;
+    top: 14px;
     right: 12px;
     padding: 9px 12px;
     font-size: 12px;

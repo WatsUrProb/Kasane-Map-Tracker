@@ -1,11 +1,72 @@
+/* =========================================================
+   DESKTOP SIDEBAR
+   ========================================================= */
 
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  padding: 22px 18px;
 
-/* Mobile menu button */
+  background: #101810;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  z-index: 1000;
+}
+
+/* The animated mobile toggle replaces this old button */
 .mobile-menu-button {
   display: none;
 }
 
-/* Main vertical layout */
+/* =========================================================
+   SIDEBAR HEADER
+   ========================================================= */
+
+.sidebar-header {
+  margin-bottom: 28px;
+}
+
+.sidebar-label {
+  margin: 0 0 8px;
+
+  color: #00ff66;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.sidebar-header h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 28px;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-intro {
+  margin: 12px 0 0;
+
+  color: #bfc9b8;
+
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   MAIN SIDEBAR LAYOUT
+   ========================================================= */
+
 .sidebar-main-section {
   display: flex;
   flex-direction: column;
@@ -16,18 +77,28 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+
   margin-bottom: 50px;
 }
 
-/* Map button + current map status */
+/* Map switch + current map status */
 .sidebar-map-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 
-  margin-top: 50px;
+  margin-top: 0;
   margin-bottom: 28px;
+}
+
+.map-description {
+  margin: 0;
+
+  color: #f5d48f;
+
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 /* Legend spacing */
@@ -35,13 +106,133 @@
   margin-top: 4px;
 }
 
-/* SOS pushed to bottom */
+/* =========================================================
+   CURRENT MAP STATUS
+   ========================================================= */
+
+.current-map-status {
+  width: 75%;
+  padding: 12px 14px;
+
+  border: 2px solid rgba(255, 209, 102, 0.75);
+  border-radius: 16px;
+
+  background: rgba(20, 18, 12, 0.9);
+
+  text-align: center;
+
+  box-shadow:
+    0 0 12px rgba(255, 209, 102, 0.45),
+    0 0 26px rgba(245, 158, 11, 0.25),
+    inset 0 0 16px rgba(255, 209, 102, 0.12);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.current-map-label {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #ffe8a3;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.current-map-status strong {
+  display: block;
+
+  color: #fff8dc;
+
+  font-size: 15px;
+  font-weight: 950;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 8px rgba(255, 209, 102, 0.75),
+    0 0 18px rgba(245, 158, 11, 0.55);
+}
+
+/* Regular map colours */
+.current-map-regular {
+  background: rgba(28, 21, 8, 0.92);
+  border-color: rgba(255, 209, 102, 0.75);
+
+  box-shadow:
+    0 0 12px rgba(255, 209, 102, 0.45),
+    0 0 26px rgba(245, 158, 11, 0.25),
+    inset 0 0 16px rgba(255, 209, 102, 0.12);
+}
+
+.current-map-regular .current-map-label {
+  color: #ffe8a3;
+}
+
+.current-map-regular strong {
+  color: #fff8dc;
+}
+
+/* Satellite map colours */
+.current-map-satellite {
+  background: rgba(6, 16, 24, 0.94);
+  border-color: rgba(0, 217, 255, 0.75);
+
+  box-shadow:
+    0 0 12px rgba(0, 217, 255, 0.45),
+    0 0 26px rgba(0, 217, 255, 0.25),
+    inset 0 0 16px rgba(0, 217, 255, 0.12);
+}
+
+.current-map-satellite .current-map-label {
+  color: #8ff7ff;
+}
+
+.current-map-satellite strong {
+  color: #38dfff;
+
+  text-shadow:
+    0 0 8px rgba(0, 217, 255, 0.85),
+    0 0 18px rgba(0, 217, 255, 0.55);
+}
+
+/* Hybrid map colours */
+.current-map-hybrid {
+  background: rgba(20, 10, 32, 0.94);
+  border-color: rgba(168, 85, 247, 0.8);
+
+  box-shadow:
+    0 0 12px rgba(168, 85, 247, 0.45),
+    0 0 26px rgba(168, 85, 247, 0.25),
+    inset 0 0 16px rgba(168, 85, 247, 0.12);
+}
+
+.current-map-hybrid .current-map-label {
+  color: #e9d5ff;
+}
+
+.current-map-hybrid strong {
+  color: #c084fc;
+
+  text-shadow:
+    0 0 8px rgba(168, 85, 247, 0.85),
+    0 0 18px rgba(168, 85, 247, 0.55);
+}
+
+/* =========================================================
+   SOS SECTION
+   ========================================================= */
+
 .sidebar-sos-section {
   margin-top: auto;
   padding-top: 26px;
 }
 
-/* SOS button */
 .sos-button {
   width: 100%;
   padding: 20px 16px;
@@ -62,7 +253,10 @@
     0 0 16px rgba(220, 38, 38, 0.45),
     inset 0 0 14px rgba(255, 255, 255, 0.12);
 
-  transition: 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .sos-button:hover {
@@ -77,266 +271,352 @@
 
 .sos-description {
   margin: 12px 0 0;
+
   color: #df6c6c;
+
   font-size: 15px;
   line-height: 1.45;
 }
 
-.map-description {
-  margin: 15px 0 0;
-  color: #f5d48f;
-  font-size: 12px;
-  line-height: 1.45;
-}
-
-/* Current map status card */
-.current-map-status {
-  width: 75%;
-  padding: 12px 14px;
-
-  border-radius: 16px;
-  text-align: center;
-
-  background: rgba(20, 18, 12, 0.9);
-  border: 2px solid rgba(255, 209, 102, 0.75);
-
-  box-shadow:
-    0 0 12px rgba(255, 209, 102, 0.45),
-    0 0 26px rgba(245, 158, 11, 0.25),
-    inset 0 0 16px rgba(255, 209, 102, 0.12);
-}
-
-.current-map-label {
-  display: block;
-  margin-bottom: 4px;
-
-  color: #ffe8a3;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-}
-
-.current-map-status strong {
-  display: block;
-
-  color: #fff8dc;
-  font-size: 15px;
-  font-weight: 950;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-
-  text-shadow:
-    0 0 8px rgba(255, 209, 102, 0.75),
-    0 0 18px rgba(245, 158, 11, 0.55);
-}
-
-
-
-/* Mobile layout */
-@media (max-width: 768px) {
-  .mobile-menu-button {
-    display: block;
-    position: fixed;
-    top: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    z-index: 1500;
-
-    padding: 10px 16px;
-    border: none;
-    border-radius: 999px;
-
-    background: rgba(16, 24, 16, 0.95);
-    color: white;
-
-    font-weight: 900;
-    cursor: pointer;
-
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 48vh;
-    left: 12px;
-    right: 12px;
-
-    width: auto;
-    height: auto;
-    max-height: 44vh;
-
-    padding: 16px;
-    border-radius: 20px;
-
-    transform: translateY(110vh);
-    transition: transform 0.25s ease;
-
-    overflow-y: auto;
-  }
-
-  .sidebar.mobile-open {
-    transform: translateY(0);
-  }
-
-  .sidebar-map-section {
-    margin-top: 2vh;
-    margin-bottom: 20px;
-  }
-
-  .sidebar-sos-section {
-    margin-top: 20px;
-    padding-top: 16px;
-  }
-
-  .sos-button {
-    padding: 14px;
-    font-size: 22px;
-  }
-
-  .sos-description {
-    font-size: 11px;
-  }
-}
-
-/*Sidebar Title and description*/
-
-.sidebar-header {
-  margin-bottom: 28px;
-}
-
-.sidebar-label {
-  margin: 0 0 8px;
-  color: #00ff66;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.sidebar-header h1 {
-  margin: 0;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 950;
-  line-height: 1;
-  letter-spacing: 0.5px;
-}
-
-.sidebar-intro {
-  margin: 12px 0 0;
-  color: #bfc9b8;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.sidebar-drag-handle {
-  display: none;
-}
-
-.sidebar {
-  width: 280px;
-  height: 100vh;
-  padding: 22px 18px;
-  background: #101810;
-  color: white;
-
-  display: flex;
-  flex-direction: column;
-
-  box-sizing: border-box;
-  overflow-y: auto;
-  z-index: 1000;
-
-  transition:
-    width 0.25s ease,
-    padding 0.25s ease,
-    opacity 0.2s ease;
-}
-
-
+/* =========================================================
+   FLOATING SIGHTING FORM
+   ========================================================= */
 
 .floating-sighting-form {
   position: fixed;
 
   top: 28px;
-  left: 30px;
+  left: 300px;
+
   width: 360px;
   max-height: calc(100vh - 56px);
+
   overflow-y: auto;
-  z-index: 1400;
+  -webkit-overflow-scrolling: touch;
+
+  z-index: 1600;
+
   border-radius: 20px;
-
-    transition:
-    width 0.25s ease,
-    padding 0.25s ease,
-    opacity 0.2s ease;
 }
 
-.sidebar-hidden-while-adding {
+/* =========================================================
+   UNUSED DRAG HANDLE
+   ========================================================= */
 
-  width: 0;
-
-  padding: 0;
-
-  border: none;
-
-  overflow: hidden;
-
-  opacity: 0;
-
-  pointer-events: none;
-
-    transition:
-    width 0.25s ease,
-    padding 0.25s ease,
-    opacity 0.2s ease;
-
+.sidebar-drag-handle {
+  display: none;
 }
+
+/* =========================================================
+   MOBILE COMPACT BOTTOM DRAWER
+   ========================================================= */
+
 @media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    top: auto;
+
+    width: auto;
+    height: auto;
+    max-height: none;
+
+    padding: 10px 12px;
+    border-radius: 22px;
+
+    background: rgba(12, 18, 12, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    /*
+      Column 1: title
+      Column 2: action buttons
+      Column 3: map and SOS
+    */
+    display: grid;
+    grid-template-columns:
+      minmax(72px, 0.65fr)
+      minmax(110px, 1.15fr)
+      minmax(105px, 1fr);
+
+    grid-template-rows: 52px 52px;
+
+    column-gap: 8px;
+    row-gap: 8px;
+
+    align-items: stretch;
+
+    overflow: hidden;
+
+    transform: translateY(calc(100% + 24px));
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
+      opacity 0.25s ease;
+
+    box-sizing: border-box;
+    z-index: 2000;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* =====================================================
+     LEFT COLUMN: KASANE TRACKER
+     ===================================================== */
+
+  .sidebar-header {
+    grid-column: 1;
+    grid-row: 1 / 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-width: 0;
+    width: auto;
+
+    margin: 0;
+    padding: 0 0 0 4px;
+  }
+
+  .sidebar-label,
+  .sidebar-intro {
+    display: none;
+  }
+
+  .sidebar-header h1 {
+    margin: 0;
+
+    color: white;
+
+    font-size: clamp(16px, 4.5vw, 22px);
+    font-weight: 950;
+    line-height: 1.05;
+    letter-spacing: 0.2px;
+
+    overflow-wrap: normal;
+  }
+
+  /*
+    Makes the sections inside main-section participate
+    directly in the sidebar grid.
+  */
+  .sidebar-main-section {
+    display: contents;
+  }
+
+  /* =====================================================
+     MIDDLE COLUMN: ADD SIGHTING + MY LOCATION
+     ===================================================== */
+
+  .sidebar-action-section {
+    grid-column: 2;
+    grid-row: 1 / 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+
+    min-width: 0;
+    margin: 0;
+
+    gap: 8px;
+  }
+
+  .sidebar .sidebar-action-button {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    margin: 0;
+    padding: 6px 8px;
+
+    border-radius: 13px;
+
+    font-size: clamp(19px, 3vw, 14px);
+    line-height: 1.1;
+    white-space: nowrap;
+
+    box-sizing: border-box;
+  }
+
+  /*
+    Keep both action buttons the same size.
+    This overrides any previous last-child sizing.
+  */
+  .sidebar-action-section .sidebar-action-button:last-child {
+    min-height: 0;
+    padding: 6px 8px;
+
+    font-size: clamp(19px, 3vw, 14px);
+  }
+
+  /* =====================================================
+     TOP-RIGHT: MAP TYPE BUTTON
+     ===================================================== */
+
+  .sidebar-map-section {
+    grid-column: 3;
+    grid-row: 1;
+
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-map-section .map-description,
+  .sidebar-map-section .current-map-status {
+    display: none;
+  }
+
+  .sidebar .map-type-flip-button {
+    width: 100%;
+    height: 52px;
+    min-width: 0;
+    min-height: 52px;
+
+    margin: 0;
+    padding: 0;
+
+    border-radius: 13px;
+
+    font-size: clamp(9px, 2.7vw, 13px);
+    line-height: 1;
+
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /*
+    Keep the two animated map faces inside the button.
+  */
+  .sidebar .map-type-flip-button::before,
+  .sidebar .map-type-flip-button::after {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 4px;
+
+    border-width: 2px;
+    border-radius: inherit;
+
+    font-size: clamp(9px, 2.7vw, 13px);
+    line-height: 1;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+
+    box-sizing: border-box;
+  }
+
+  /* =====================================================
+     BOTTOM-RIGHT: SOS BUTTON
+     ===================================================== */
+
+  .sidebar-sos-section {
+    grid-column: 3;
+    grid-row: 2;
+
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar .sos-button {
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+
+    margin: 0;
+    padding: 6px 10px;
+
+    border-radius: 13px;
+
+    font-size: clamp(18px, 5vw, 25px);
+    line-height: 1;
+
+    box-sizing: border-box;
+  }
+
+  .sidebar .sos-button:hover {
+    /*
+      Prevent the button moving outside the compact drawer.
+    */
+    transform: none;
+  }
+
+  .sidebar .sos-description,
+  .sidebar .marker-types {
+    display: none;
+  }
+
+  /* =====================================================
+     FLOATING SIGHTING FORM
+     ===================================================== */
+
   .floating-sighting-form {
     position: fixed;
+
     left: 10px;
     right: 10px;
     bottom: 12px;
     top: auto;
+
     width: auto;
-    max-height: 25vh;
+    max-height: 35vh;
+
     overflow-y: auto;
-    z-index: 1600;
-    border-radius: 22px;
     -webkit-overflow-scrolling: touch;
+
+    z-index: 2200;
+
+    border-radius: 22px;
   }
-}
 
-  .sidebar-hidden-while-adding {
-    transform: translateY(110vh);
-    opacity: 0;
-}
-
-@media (max-width: 768px) {
   .sighting-form {
     padding: 56px 14px 14px;
     border-radius: 22px;
   }
 
   .sighting-form h3 {
-    font-size: 18px;
     margin-bottom: 8px;
+    font-size: 18px;
   }
 
   .sighting-form label {
-    font-size: 12px;
     margin-bottom: 7px;
+    font-size: 12px;
   }
 
   .sighting-form select,
   .sighting-form input,
   .sighting-form textarea {
     padding: 7px 9px;
-    font-size: 13px;
     border-radius: 9px;
+
+    font-size: 13px;
   }
 
   .sighting-form textarea {
@@ -345,9 +625,10 @@
 
   .location-warning,
   .location-success {
-    font-size: 12px;
-    padding: 8px;
     margin: 0 0 10px;
+    padding: 8px;
+
+    font-size: 12px;
   }
 
   .submit-sighting-button {
@@ -356,3 +637,69 @@
   }
 }
 
+/* =========================================================
+   VERY NARROW PHONES
+   ========================================================= */
+
+@media (max-width: 390px) {
+  .sidebar {
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+
+    padding: 9px;
+
+    grid-template-columns:
+      minmax(64px, 0.6fr)
+      minmax(96px, 1.08fr)
+      minmax(92px, 1fr);
+
+    grid-template-rows: 48px 48px;
+
+    column-gap: 6px;
+    row-gap: 6px;
+  }
+
+  .sidebar-header {
+    padding-left: 2px;
+  }
+
+  .sidebar-header h1 {
+    font-size: 30px;
+  }
+
+  .sidebar .sidebar-action-button {
+    padding: 5px 4px;
+    border-radius: 11px;
+
+    font-size: 30px;
+  }
+
+  .sidebar-action-section .sidebar-action-button:last-child {
+    padding: 5px 4px;
+    font-size: 30px;
+  }
+
+  .sidebar .map-type-flip-button {
+    height: 48px;
+    min-height: 48px;
+
+    border-radius: 11px;
+  }
+
+  .sidebar .map-type-flip-button::before,
+  .sidebar .map-type-flip-button::after {
+    padding: 0 2px;
+
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .sidebar .sos-button {
+    min-height: 48px;
+
+    border-radius: 11px;
+
+    font-size: 19px;
+  }
+}

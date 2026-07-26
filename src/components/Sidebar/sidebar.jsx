@@ -3,6 +3,7 @@ import Legends from "../Legends/legends";
 import "./sidebar.css";
 import MapTypeFlipButton from "./MapTypeFlipButton/MapTypeFlipButton";
 import SidebarActionButton from "./SidebarActionButton/SidebarActionButton";
+import MobileMenuToggle from "./MobileMenuToggle/MobileMenuToggle";
 
 function Sidebar({
   isAddMode,
@@ -27,12 +28,10 @@ function Sidebar({
 
   return (
     <>
-      <button
-        className="mobile-menu-button"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-      >
-        {isMobileMenuOpen ? "Close" : "Menu"}
-      </button>
+      <MobileMenuToggle
+        isOpen={isMobileMenuOpen}
+        onToggle={() => setIsMobileMenuOpen((previous) => !previous)}
+      />
       <aside
         className={`sidebar ${isMobileMenuOpen ? "mobile-open" : ""} ${
           isAddMode ? "sidebar-hidden-while-adding" : ""

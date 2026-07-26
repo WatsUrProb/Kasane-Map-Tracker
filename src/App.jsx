@@ -6,6 +6,7 @@ import SafariMap from "./components/Map/SafariMap";
 import SOSBanner from "./components/SOSBanner/SOSBanner";
 import SightingNotification from "./components/SightingNotification/SightingNotification";
 import ReportsModal from "./components/ReportsModal/ReportsModal";
+import MobileMapInfo from "./components/MobileMapInfo/MobileMapInfo";
 
 
 import "./App.css";
@@ -358,6 +359,7 @@ function App() {
 
   return (
     <div className="app">
+      <MobileMapInfo mapType={mapType} />
       <SOSBanner
         sosAlert={activeSOSAlert}
         onDismiss={() => setActiveSOSAlert(null)}
