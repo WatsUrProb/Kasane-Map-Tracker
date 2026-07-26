@@ -32,4 +32,4 @@ nd Supabase as the backend database for persistent sighting storage.
 
 The goal of this project is to explore how a real-time safari field tool could help users share temporary location-based information,
  such as recent animal sightings or emergency alerts, while learning frontend development, interactive maps, database integration,
-  and multi-user web app architecture. */
+  and multi-user web app architecture. 
