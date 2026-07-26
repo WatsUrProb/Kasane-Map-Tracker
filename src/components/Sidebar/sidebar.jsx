@@ -10,14 +10,13 @@ function Sidebar({
   selectedPosition,
   onAddSighting,
   onAddMyLocation,
+  onUseMyLocationForSighting,
   onSOS,
   mapType,
   onCycleMapType,
   isMobileMenuOpen,
   setIsMobileMenuOpen,
 }) {
-
-
   function handleToggleAddMode() {
     setIsAddMode(!isAddMode);
 
@@ -38,9 +37,7 @@ function Sidebar({
         className={`sidebar ${isMobileMenuOpen ? "mobile-open" : ""} ${
           isAddMode ? "sidebar-hidden-while-adding" : ""
         }`}
-
       >
-
         <div className="sidebar-header">
           <p className="sidebar-label">Kasane Field System</p>
 
@@ -97,6 +94,7 @@ function Sidebar({
           <SightingForm
             selectedPosition={selectedPosition}
             onAddSighting={onAddSighting}
+            onUseMyLocation={onUseMyLocationForSighting}
             onCancel={() => setIsAddMode(false)}
           />
         </div>

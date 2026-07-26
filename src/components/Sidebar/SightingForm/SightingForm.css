@@ -131,3 +131,64 @@
   background: rgba(255, 80, 80, 0.35);
   color: #fff;
 } */
+
+.location-selection,
+.location-selected-section {
+  margin-bottom: 12px;
+}
+
+.location-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 9px 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.location-divider::before,
+.location-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.use-location-button,
+.change-location-button {
+  width: 100%;
+  padding: 10px 12px;
+
+  border: 2px solid rgba(0, 217, 255, 0.7);
+  border-radius: 12px;
+
+  background: rgba(0, 217, 255, 0.08);
+  color: #7df5ff;
+
+  font-size: 14px;
+  font-weight: 850;
+  cursor: pointer;
+
+  box-shadow:
+    0 0 10px rgba(0, 217, 255, 0.25),
+    inset 0 0 12px rgba(0, 217, 255, 0.08);
+
+  transition: 0.25s ease;
+}
+
+.use-location-button:hover,
+.change-location-button:hover {
+  background: rgba(0, 217, 255, 0.16);
+  border-color: #7df5ff;
+
+  box-shadow:
+    0 0 16px rgba(0, 217, 255, 0.5),
+    inset 0 0 14px rgba(0, 217, 255, 0.12);
+}
+
+.change-location-button {
+  margin-top: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+}

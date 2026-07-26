@@ -7,6 +7,7 @@ import SOSBanner from "./components/SOSBanner/SOSBanner";
 import SightingNotification from "./components/SightingNotification/SightingNotification";
 import ReportsModal from "./components/ReportsModal/ReportsModal";
 
+
 import "./App.css";
 
 //mini-function to convert row in Supabase into object for react
@@ -45,6 +46,8 @@ function App() {
   //For notification modal
   const [isReportsModalOpen, setIsReportsModalOpen] = useState(false);
   const [selectedReportToFocus, setSelectedReportToFocus] = useState(null);
+
+
 
   // "regular", "satellite", or "hybrid"
   const [mapType, setMapType] = useState("regular");
@@ -267,7 +270,19 @@ function App() {
 
     setUserLocation(customKasaneLocation);
     setShouldCenterOnUser(true);
+    setSelectedPosition(customKasaneLocation);
   }
+
+  function handleUseMyLocationForSighting() {
+  const customKasaneLocation = {
+    lat: -17.8167,
+    lng: 25.15,
+  };
+
+  setUserLocation(customKasaneLocation);
+  setSelectedPosition(customKasaneLocation);
+  setShouldCenterOnUser(true);
+}
 
   function handleFinishedCenteringUser() {
     setShouldCenterOnUser(false);
@@ -374,6 +389,7 @@ function App() {
         selectedPosition={selectedPosition}
         onAddSighting={handleAddSighting}
         onAddMyLocation={handleAddMyLocation}
+        onUseMyLocationForSighting={handleUseMyLocationForSighting}
         onSOS={handleSOS}
         mapType={mapType}
         onCycleMapType={handleCycleMapType}

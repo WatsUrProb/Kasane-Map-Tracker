@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./SightingForm.css";
 import CloseButton from "../../CloseButton/CloseButton";
 
-function SightingForm({ selectedPosition, onAddSighting, onCancel }) {
+
+function SightingForm({ selectedPosition, onAddSighting  ,onUseMyLocation, onCancel }) {
   const [formData, setFormData] = useState({
     category: "animal",
     animalType: "elephant",
@@ -11,6 +12,18 @@ function SightingForm({ selectedPosition, onAddSighting, onCancel }) {
     behaviour: "peaceful",
     description: "",
   });
+
+  const [locationMode, setLocationMode] = useState("manual");
+
+
+  function handleUseLocation() {
+  onUseMyLocation();
+  setLocationMode("location");
+}
+
+function handleSwitchToManual() {
+  setLocationMode("manual");
+}
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -32,17 +45,45 @@ function SightingForm({ selectedPosition, onAddSighting, onCancel }) {
 
       <h3>New Sighting</h3>
 
-      {!selectedPosition ? (
-        <p className="location-warning">
-          Click on the map to choose a location.
-        </p>
-      ) : (
-        <p className="location-success">
-          Location selected: {selectedPosition.lat.toFixed(4)},{" "}
-          {selectedPosition.lng.toFixed(4)}
-        </p>
-      )}
+{locationMode === "manual" ? (
+  <div className="location-selection">
+    <p className="location-warning">
+      Click on the map to MANUALLY choose a location.
+    </p>
 
+    <div className="location-divider">
+      <span>or</span>
+    </div>
+
+    <button
+      type="button"
+      className="use-location-button"
+      onClick={handleUseLocation}
+    >
+      Use My Location
+    </button>
+  </div>
+) : (
+  <div className="location-selected-section">
+    <p className="location-success">
+      Using your current location
+      {selectedPosition && (
+        <>
+          : {selectedPosition.lat.toFixed(4)},{" "}
+          {selectedPosition.lng.toFixed(4)}
+        </>
+      )}
+    </p>
+
+    <button
+      type="button"
+      className="change-location-button"
+      onClick={handleSwitchToManual}
+    >
+      Switch to Manual Adding
+    </button>
+  </div>
+)}
       <label>
         Category
         <select
