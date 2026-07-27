@@ -38,12 +38,12 @@ and multi-user web app architecture.
 
 ### Desktop Map
 
-![Kasane Map Tracker Front Page](screenshots/Opening.jpg)
+![Kasane Map Tracker Front Page](public/Screenshots/Opening.jpg)
 
-![Kasane Map Tracker desktop view](screenshots/Desktop.jpg)
+![Kasane Map Tracker desktop view](public/Screenshots/Desktop.jpg)
 
 ### Mobile View
 
-![Kasane Map Tracker mobile view](screenshots/Phone.jpg)
+![Kasane Map Tracker mobile view](public/Screenshots/Phone.jpg)
 
-![Kasane Map Tracker Recent Sighting view](screenshots/RecentSighting.jpg)
+![Kasane Map Tracker Recent Sighting view](public/Screenshots/RecentSighting.jpg)
