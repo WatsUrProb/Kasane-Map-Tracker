@@ -1,5 +1,6 @@
 
 # Kasane Safari Tracker
+Vercel app link: https://kasane-map-tracker.vercel.app/#
 
 Kasane Safari Tracker is a React + Vite web application prototype for mapping safari activity around Kasane, Botswana. 
 The app allows users to view and add recent wildlife-related map markers such as animal sightings, carcass hotspots, temporary campsites, 
